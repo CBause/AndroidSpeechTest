@@ -19,6 +19,4 @@ interface SpeechRecognitionIntentBuilder {
     fun setExtraPreferOffline(preferOffline: Boolean)
 
     fun setExtraPrompt(prompt: String)
-
-
 }

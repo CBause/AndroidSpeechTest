@@ -12,6 +12,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/speechrecognitionintentbuilder" />
+            <option value="$PROJECT_DIR$/speechrecognitionresultresolver" />
             <option value="$PROJECT_DIR$/speechrecognizer" />
           </set>
         </option>
