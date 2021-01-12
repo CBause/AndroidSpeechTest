@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">AndroidSpeechTest</string>
+
+    <string name="speechRecognitionStart">Start</string>
+    <string name="speechRecognitionStop">Stop</string>
+    <string name="speechRecognitionGetCurrentResults">Get current</string>
+    <string name="speechRecognitionWaitingForInput">Waiting for speech</string>
+    <string name="speechRecognitionClearTextView">Clear</string>
+    <string name="speechRecognitionExternal">Extern</string>
+    <string name="speechRecognitionDirect">Direct</string>
+</resources>
