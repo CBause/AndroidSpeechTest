@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 
 class NavigationFragment : Fragment() {
     private lateinit var buttonShowDirectSpeechRecognitionFragment: Button
+    private lateinit var buttonShowSpeechRecognitionFragment: Button
     private lateinit var buttonShowExternalSpeechRecognitionFragment: Button
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -18,24 +19,40 @@ class NavigationFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         buttonShowDirectSpeechRecognitionFragment = view.findViewById(R.id.buttonNavigateToDirectSpeechRecognitionFragment)
+        buttonShowSpeechRecognitionFragment = view.findViewById(R.id.buttonNavigateToSpeechRecognitionFragment)
         buttonShowExternalSpeechRecognitionFragment = view.findViewById(R.id.buttonNavigateToExternalSpeechRecognitionFragment)
-        setupShowDirectButton()
-        setupShowExternalButton()
+        setupShowDirectSpeechRecognitionButton()
+        setupShowSpeechRecognitionButton()
+        setupShowExternalSpeechRecognitionButton()
     }
 
-    fun setupShowDirectButton() {
+    private fun enableAllButtons() {
+        buttonShowExternalSpeechRecognitionFragment.isEnabled = true
+        buttonShowDirectSpeechRecognitionFragment.isEnabled = true
+        buttonShowSpeechRecognitionFragment.isEnabled = true
+    }
+
+    private fun initiateNavigation(view: View, fragmentTag: MainFragmentController.FRAGMENTTAGS) {
+        enableAllButtons()
+        view.isEnabled = false
+        MainFragmentController.replaceCurrentFragment(requireActivity().supportFragmentManager, fragmentTag)
+    }
+
+    fun setupShowDirectSpeechRecognitionButton() {
         buttonShowDirectSpeechRecognitionFragment.setOnClickListener {
-            it.isEnabled = false
-            buttonShowExternalSpeechRecognitionFragment.isEnabled = true
-            MainFragmentController.replaceCurrentFragment(requireActivity().supportFragmentManager, MainFragmentController.FRAGMENTTAGS.DIRECTSPEECHRECOGNITIONFRAGMENT)
+            initiateNavigation(it, MainFragmentController.FRAGMENTTAGS.DIRECTSPEECHRECOGNITIONFRAGMENT)
         }
     }
 
-    fun setupShowExternalButton() {
+    fun setupShowSpeechRecognitionButton() {
+        buttonShowSpeechRecognitionFragment.setOnClickListener {
+            initiateNavigation(it, MainFragmentController.FRAGMENTTAGS.SPEECHRECOGNITIONFRAGMENT)
+        }
+    }
+
+    fun setupShowExternalSpeechRecognitionButton() {
         buttonShowExternalSpeechRecognitionFragment.setOnClickListener {
-            it.isEnabled = false
-            buttonShowDirectSpeechRecognitionFragment.isEnabled = true
-            MainFragmentController.replaceCurrentFragment(requireActivity().supportFragmentManager, MainFragmentController.FRAGMENTTAGS.EXTERNALSPEECHRECOGNITIONFRAGMENT)
+            initiateNavigation(it, MainFragmentController.FRAGMENTTAGS.EXTERNALSPEECHRECOGNITIONFRAGMENT)
         }
     }
 

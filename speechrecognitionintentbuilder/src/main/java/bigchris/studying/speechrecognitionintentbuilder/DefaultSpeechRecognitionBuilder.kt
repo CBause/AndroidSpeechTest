@@ -15,6 +15,7 @@ internal class DefaultSpeechRecognitionBuilder : SpeechRecognitionIntentBuilder 
 
     override fun setActionHandsFreeSearch() {
         resultIntent.action = RecognizerIntent.ACTION_VOICE_SEARCH_HANDS_FREE
+        resultIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
     }
 
     override fun setActionWebSearch() {

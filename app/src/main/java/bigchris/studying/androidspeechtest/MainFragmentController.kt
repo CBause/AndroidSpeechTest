@@ -2,21 +2,24 @@ package bigchris.studying.androidspeechtest
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import bigchris.studying.androidspeechtest.externalspeechrecognition.ExternalSpeechRecognitionFragment
+import bigchris.studying.androidspeechtest.speechrecognition.SpeechRecognitionFragment
 import bigchris.studying.androidspeechtest.directspeechrecognition.DirectSpeechRecognitionFragment
+import bigchris.studying.androidspeechtest.externalspeechrecognition.ExternalSpeechRecognitionFragment
 import java.lang.IllegalArgumentException
 
 object MainFragmentController {
     val frameLayoutId = R.id.frameLayoutMain
-    val initialFragmentClass = FRAGMENTTAGS.EXTERNALSPEECHRECOGNITIONFRAGMENT
+    val initialFragmentClass = FRAGMENTTAGS.SPEECHRECOGNITIONFRAGMENT
     enum class FRAGMENTTAGS {
         DIRECTSPEECHRECOGNITIONFRAGMENT,
+        SPEECHRECOGNITIONFRAGMENT,
         EXTERNALSPEECHRECOGNITIONFRAGMENT
     }
 
     private fun createFragment(fragmentTag: FRAGMENTTAGS) = with(fragmentTag) {
         when(fragmentTag) {
             FRAGMENTTAGS.DIRECTSPEECHRECOGNITIONFRAGMENT -> DirectSpeechRecognitionFragment()
+            FRAGMENTTAGS.SPEECHRECOGNITIONFRAGMENT -> SpeechRecognitionFragment()
             FRAGMENTTAGS.EXTERNALSPEECHRECOGNITIONFRAGMENT -> ExternalSpeechRecognitionFragment()
             else -> throw IllegalArgumentException("Undefined or unknown fragment")
         }

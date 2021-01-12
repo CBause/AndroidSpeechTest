@@ -6,6 +6,7 @@
     <string name="speechRecognitionGetCurrentResults">Get current</string>
     <string name="speechRecognitionWaitingForInput">Waiting for speech</string>
     <string name="speechRecognitionClearTextView">Clear</string>
+    <string name="speechRecognitionDefault">Default</string>
     <string name="speechRecognitionExternal">Extern</string>
     <string name="speechRecognitionDirect">Direct</string>
 </resources>
