@@ -1,10 +1,9 @@
 package bigchris.studying.androidspeechtest
 
-import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import bigchris.studying.androidspeechtest.externalspeechrecognition.ExternalSpeechRecognitionFragment
-import bigchris.studying.androidspeechtest.speechrecognition.DirectSpeechRecognitionFragment
+import bigchris.studying.androidspeechtest.directspeechrecognition.DirectSpeechRecognitionFragment
 import java.lang.IllegalArgumentException
 
 object MainFragmentController {

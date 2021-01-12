@@ -1,4 +1,4 @@
-package bigchris.studying.androidspeechtest.speechrecognition
+package bigchris.studying.androidspeechtest.directspeechrecognition
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,19 +10,16 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import bigchris.studying.androidspeechtest.MainViewModel
 import bigchris.studying.androidspeechtest.R
-import bigchris.studying.androidspeechtest.ViewModelFactory
-import bigchris.studying.speechrecognizer.SpeechRecognizerController
-import bigchris.studying.speechrecognizer.SpeechRecognizerControllerFactory
+import bigchris.studying.androidspeechtest.getViewModelFactory
 
 class DirectSpeechRecognitionFragment : Fragment() {
-    private val viewModel: DirectSpeechRecognitionViewModel by viewModels() {ViewModelFactory()}
-    private val mainViewModel: MainViewModel by viewModels() {ViewModelFactory(true)}
+    private val viewModel by viewModels<DirectSpeechRecognitionViewModel> {getViewModelFactory()}
+    private val mainViewModel by viewModels<MainViewModel> {getViewModelFactory(true)}
     private lateinit var buttonSpeechRecognizerStart: Button
     private lateinit var buttonSpeechRecognizerStop: Button
     private lateinit var buttonSpeechRecognizerGetCurrrent: Button
     private lateinit var buttonClearTextView: Button
-    private lateinit var editTextSpeechRecognizerOutput: EditText
-    private val speechRecognizerController: SpeechRecognizerController by lazy { SpeechRecognizerControllerFactory().getInstance(requireActivity().baseContext) }
+    private lateinit var editTextDirectSpeechRecognizerOutput: EditText
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,30 +35,30 @@ class DirectSpeechRecognitionFragment : Fragment() {
         buttonSpeechRecognizerGetCurrrent = view.findViewById(R.id.buttonSpeechRecognizerGetCurrentResult)
         buttonSpeechRecognizerStop = view.findViewById(R.id.buttonSpeechRecognizerStop)
         buttonClearTextView = view.findViewById(R.id.buttonClearView)
-        editTextSpeechRecognizerOutput = view.findViewById(R.id.editTextDirectSpeechRecognizerOutput)
+        editTextDirectSpeechRecognizerOutput = view.findViewById(R.id.editTextDirectSpeechRecognizerOutput)
         setupClickListeners()
     }
 
-    fun setupClickListeners() {
+    private fun setupClickListeners() {
         setStartOnClickListener()
         setStopOnClickListener()
         setGetCurrentClickListener()
         setClearTextViewOnClickListener()
     }
 
-    fun setStartOnClickListener() {
+    private fun setStartOnClickListener() {
 
     }
 
-    fun setStopOnClickListener() {
+    private fun setStopOnClickListener() {
 
     }
 
-    fun setGetCurrentClickListener() {
+    private fun setGetCurrentClickListener() {
 
     }
 
-    fun setClearTextViewOnClickListener() {
+    private fun setClearTextViewOnClickListener() {
 
     }
 }

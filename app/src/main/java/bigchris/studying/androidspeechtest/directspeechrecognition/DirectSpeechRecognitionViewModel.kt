@@ -1,8 +1,7 @@
-package bigchris.studying.androidspeechtest.speechrecognition
+package bigchris.studying.androidspeechtest.directspeechrecognition
 
 import androidx.lifecycle.ViewModel
 
 class DirectSpeechRecognitionViewModel : ViewModel() {
-
 
 }
