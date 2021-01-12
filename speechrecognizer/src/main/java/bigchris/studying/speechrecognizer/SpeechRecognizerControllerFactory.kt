@@ -4,7 +4,9 @@ import android.content.Context
 
 class SpeechRecognizerControllerFactory {
 
-    fun getInstance(context: Context) : SpeechRecognizerController {
-        return DefaultSpeechRecognizerController(context)
+    companion object {
+        fun getInstance(context: Context): SpeechRecognizerController {
+            return DefaultSpeechRecognizerController(context)
+        }
     }
 }

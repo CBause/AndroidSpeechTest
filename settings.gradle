@@ -1,3 +1,4 @@
 rootProject.name = "AndroidSpeechTest"
 include ':app'
 include ':speechrecognizer'
+include ':speechrecognitionintentbuilder'

@@ -20,7 +20,7 @@ class ExternalSpeechRecognitionFragment : Fragment() {
     private lateinit var buttonStartExternalSpeechRecognition: ImageButton
     private val activityResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {result->
         if (this::editTextExternalSpeechRecognizerOutput.isInitialized) {
-            editTextExternalSpeechRecognizerOutput.setText(result.data.toString())
+            editTextExternalSpeechRecognizerOutput.setText(result.resultCode.toString())
         }
     }
 
