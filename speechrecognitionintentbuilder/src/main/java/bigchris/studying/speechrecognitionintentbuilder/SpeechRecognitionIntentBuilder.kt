@@ -1,6 +1,7 @@
 package bigchris.studying.speechrecognitionintentbuilder
 
 import android.content.Intent
+import android.content.IntentFilter
 
 interface SpeechRecognitionIntentBuilder {
 

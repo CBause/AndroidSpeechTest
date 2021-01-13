@@ -10,9 +10,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import bigchris.studying.androidspeechtest.MainViewModel
 import bigchris.studying.androidspeechtest.R
+import bigchris.studying.androidspeechtest.Tagged
 import bigchris.studying.androidspeechtest.getViewModelFactory
 
-class DirectSpeechRecognitionFragment : Fragment() {
+class DirectSpeechRecognitionFragment : Fragment(), Tagged {
+    override val TAG: String = "DIRECTSPEECHRECOGNITIONFRAGMENT"
     private val viewModel by viewModels<DirectSpeechRecognitionViewModel> {getViewModelFactory()}
     private val mainViewModel by viewModels<MainViewModel> {getViewModelFactory(true)}
     private lateinit var buttonDirectSpeechRecognizerStart: Button

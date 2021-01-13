@@ -9,4 +9,10 @@ interface SpeechRecognitionResultResolver {
     fun getResultCodeString(resultCode: Int) : String
 
     fun getConfidenceScoresOrNull() : FloatArray?
+
+    fun getConfidencePerStringMapOrNull() : List<Pair<Float, String>>?
+
+    fun getVoiceSearchResultStringsOrNull(): ArrayList<String>?
+
+    fun getVoiceSearchHtmlResultStringsOrNull(): ArrayList<String>?
 }

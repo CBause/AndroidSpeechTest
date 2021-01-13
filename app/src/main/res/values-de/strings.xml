@@ -9,4 +9,5 @@
     <string name="speechRecognitionDefault">Standard</string>
     <string name="speechRecognitionExternal">Extern</string>
     <string name="speechRecognitionDirect">Direkt</string>
+    <string name="speechRecognitionPrompt">Bitte sprechen Sie jetzt</string>
 </resources>

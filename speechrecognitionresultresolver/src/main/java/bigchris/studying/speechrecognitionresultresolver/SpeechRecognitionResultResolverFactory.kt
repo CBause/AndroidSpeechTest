@@ -5,6 +5,6 @@ import android.content.Intent
 class SpeechRecognitionResultResolverFactory {
 
     companion object {
-        fun getInstance(resultIntent: Intent) : SpeechRecognitionResultResolver = DefaultSpeechRecognitionResultResolver(resultIntent)
+        fun getInstance(resultIntent: Intent?) : SpeechRecognitionResultResolver = DefaultSpeechRecognitionResultResolver(resultIntent)
     }
 }

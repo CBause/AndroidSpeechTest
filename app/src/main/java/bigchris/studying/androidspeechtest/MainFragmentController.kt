@@ -7,16 +7,17 @@ import bigchris.studying.androidspeechtest.directspeechrecognition.DirectSpeechR
 import bigchris.studying.androidspeechtest.externalspeechrecognition.ExternalSpeechRecognitionFragment
 import java.lang.IllegalArgumentException
 
-object MainFragmentController {
+object MainFragmentController : Tagged {
+    override val TAG = "MAINFRAGMENTCONTROLLER"
     val frameLayoutId = R.id.frameLayoutMain
-    val initialFragmentClass = FRAGMENTTAGS.SPEECHRECOGNITIONFRAGMENT
+    val initialFragmentClass: FRAGMENTTAGS = FRAGMENTTAGS.SPEECHRECOGNITIONFRAGMENT
     enum class FRAGMENTTAGS {
         DIRECTSPEECHRECOGNITIONFRAGMENT,
         SPEECHRECOGNITIONFRAGMENT,
         EXTERNALSPEECHRECOGNITIONFRAGMENT
     }
 
-    private fun createFragment(fragmentTag: FRAGMENTTAGS) = with(fragmentTag) {
+    private fun createFragment(fragmentTag: FRAGMENTTAGS) : Fragment = with(fragmentTag) {
         when(fragmentTag) {
             FRAGMENTTAGS.DIRECTSPEECHRECOGNITIONFRAGMENT -> DirectSpeechRecognitionFragment()
             FRAGMENTTAGS.SPEECHRECOGNITIONFRAGMENT -> SpeechRecognitionFragment()

@@ -1,13 +1,15 @@
 package bigchris.studying.androidspeechtest
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
 
-class NavigationFragment : Fragment() {
+class NavigationFragment : Fragment(), Tagged {
+    override val TAG = "NAVIGATIONFRAGMENT"
     private lateinit var buttonShowDirectSpeechRecognitionFragment: Button
     private lateinit var buttonShowSpeechRecognitionFragment: Button
     private lateinit var buttonShowExternalSpeechRecognitionFragment: Button
