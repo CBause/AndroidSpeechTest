@@ -26,21 +26,10 @@
         android:layout_marginBottom="8dp"
         android:backgroundTint="#00BCD4"
         android:text="@string/speechRecognitionStop"
-        app:layout_constraintBottom_toTopOf="@+id/buttonSpeechRecognizerGetCurrentResult"
+        app:layout_constraintBottom_toTopOf="@+id/buttonClearView"
         app:layout_constraintEnd_toEndOf="@+id/buttonSpeechRecognizerStart"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/buttonSpeechRecognizerStart" />
-
-    <Button
-        android:id="@+id/buttonSpeechRecognizerGetCurrentResult"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:backgroundTint="#00BCD4"
-        android:text="@string/speechRecognitionGetCurrentResults"
-        app:layout_constraintBottom_toTopOf="@+id/buttonClearView"
-        app:layout_constraintEnd_toEndOf="@+id/buttonSpeechRecognizerStop"
-        app:layout_constraintStart_toStartOf="@+id/buttonSpeechRecognizerStop" />
 
     <Button
         android:id="@+id/buttonClearView"
@@ -50,8 +39,8 @@
         android:backgroundTint="#00BCD4"
         android:text="@string/speechRecognitionClearTextView"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/buttonSpeechRecognizerGetCurrentResult"
-        app:layout_constraintStart_toStartOf="@+id/buttonSpeechRecognizerGetCurrentResult" />
+        app:layout_constraintEnd_toEndOf="@+id/buttonSpeechRecognizerStop"
+        app:layout_constraintStart_toStartOf="@+id/buttonSpeechRecognizerStop" />
 
     <EditText
         android:id="@+id/editTextDirectSpeechRecognizerOutput"
@@ -65,8 +54,8 @@
         android:clickable="false"
         android:ems="10"
         android:focusable="false"
-        android:gravity="center|top"
-        android:hint="@string/speechRecognitionWaitingForInput"
+        android:gravity="start|top"
+        android:hint="@string/speechRecognitionPressStartToBegin"
         android:inputType="textMultiLine"
         app:layout_constraintBottom_toTopOf="@+id/buttonSpeechRecognizerStart"
         app:layout_constraintEnd_toEndOf="parent"

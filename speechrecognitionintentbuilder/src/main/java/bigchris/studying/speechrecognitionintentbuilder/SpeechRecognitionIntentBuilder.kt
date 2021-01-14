@@ -20,4 +20,10 @@ interface SpeechRecognitionIntentBuilder {
     fun setExtraPreferOffline(preferOffline: Boolean)
 
     fun setExtraPrompt(prompt: String)
+
+    fun setLeastListenTime(milliseconds: Int)
+
+    fun setWaitAfterLastSpeech(milliseconds: Int)
+
+    fun setMinimumListenTime(milliseconds: Int)
 }

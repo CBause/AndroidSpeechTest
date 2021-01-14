@@ -45,4 +45,16 @@ internal class DefaultSpeechRecognitionIntentBuilder : SpeechRecognitionIntentBu
     override fun setExtraPrompt(prompt: String) {
         resultIntent.putExtra(RecognizerIntent.EXTRA_PROMPT, prompt)
     }
+
+    override fun setLeastListenTime(milliseconds: Int) {
+        resultIntent.putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_MINIMUM_LENGTH_MILLIS, milliseconds)
+    }
+
+    override fun setWaitAfterLastSpeech(milliseconds: Int) {
+        resultIntent.putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_COMPLETE_SILENCE_LENGTH_MILLIS, milliseconds)
+    }
+
+    override fun setMinimumListenTime(milliseconds: Int) {
+        resultIntent.putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_MINIMUM_LENGTH_MILLIS, milliseconds)
+    }
 }

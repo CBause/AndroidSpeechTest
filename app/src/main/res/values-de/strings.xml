@@ -5,6 +5,7 @@
     <string name="speechRecognitionStop">Stop</string>
     <string name="speechRecognitionGetCurrentResults">Zwischenergebnis</string>
     <string name="speechRecognitionWaitingForInput">Warte auf Spracheingabe</string>
+    <string name="speechRecognitionPressStartToBegin">Drücke auf Start um mit der Spracherkennung zu beginnen</string>
     <string name="speechRecognitionClearTextView">Löschen</string>
     <string name="speechRecognitionDefault">Standard</string>
     <string name="speechRecognitionExternal">Extern</string>

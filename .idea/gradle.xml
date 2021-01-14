@@ -14,6 +14,7 @@
             <option value="$PROJECT_DIR$/speechrecognitionintentbuilder" />
             <option value="$PROJECT_DIR$/speechrecognitionintentfilterbuilder" />
             <option value="$PROJECT_DIR$/speechrecognitionresultresolver" />
+            <option value="$PROJECT_DIR$/speechrecognizercontroller" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
