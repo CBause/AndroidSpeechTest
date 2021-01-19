@@ -1,9 +1,7 @@
 package bigchris.studying.speechrecognitionintentbuilder
 
 import android.content.Intent
-import android.content.IntentFilter
 import android.speech.RecognizerIntent
-import android.speech.RecognizerResultsIntent
 
 internal class DefaultSpeechRecognitionIntentBuilder : SpeechRecognitionIntentBuilder {
     private val resultIntent = Intent()

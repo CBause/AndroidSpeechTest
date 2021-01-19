@@ -1,6 +1,5 @@
 rootProject.name = "AndroidSpeechTest"
 include ':app'
-include ':speechrecognitionintentbuilder'
 include ':speechrecognitionresultresolver'
-include ':speechrecognitionintentfilterbuilder'
+include ':speechrecognitionintentbuilder'
 include ':speechrecognizercontroller'

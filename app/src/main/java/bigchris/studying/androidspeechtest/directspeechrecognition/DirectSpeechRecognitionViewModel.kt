@@ -23,6 +23,7 @@ class DirectSpeechRecognitionViewModel : ViewModel(), Tagged, SpeechRecognitionL
 
     private fun getRecognizerIntent(): Intent = with(SpeechRecognitionIntentBuilderFactory.getInstance()) {
         this.setExtraPartialResults(true)
+        this.setExtraLanguage("de-DE")
         this.getResult()
     }
 
@@ -54,7 +55,7 @@ class DirectSpeechRecognitionViewModel : ViewModel(), Tagged, SpeechRecognitionL
     }
 
     override fun onSpeechRecognitionResults(resultStrings: ArrayList<String>) {
-        (currentResultsList as MutableLiveData<List<String>>).value = resultStrings
+        (currentResultsList as MutableLiveData<List<String>>).value = arrayListOf(resultStrings[0])
     }
 
     override fun onSpeechRecognitionPartialResults(resultStrings: ArrayList<String>) {

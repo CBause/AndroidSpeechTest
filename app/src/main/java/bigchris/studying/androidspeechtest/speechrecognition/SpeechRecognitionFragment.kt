@@ -1,6 +1,8 @@
 package bigchris.studying.androidspeechtest.speechrecognition
 
 import android.os.Bundle
+import android.text.method.MovementMethod
+import android.text.method.ScrollingMovementMethod
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -33,6 +35,8 @@ class SpeechRecognitionFragment : Fragment(), Tagged {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         textViewSpeechRecognizerOutput = view.findViewById(R.id.textViewSpeechRecognizerOutput)
+        textViewSpeechRecognizerOutput.movementMethod = ScrollingMovementMethod()
+        textViewSpeechRecognizerOutput.setHorizontallyScrolling(true)
         buttonStartSpeechRecognition = view.findViewById(R.id.buttonStartSpeechRecognition)
         setupExternalSpeechRecognitionButton()
     }
@@ -44,14 +48,14 @@ class SpeechRecognitionFragment : Fragment(), Tagged {
     }
 
     private fun getSpeechRecognitionActivityLauncher() = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {result->
-        val speechRecgnitionResultResolver: SpeechRecognitionResultResolver = SpeechRecognitionResultResolverFactory.getInstance(result.data)
+        val speechRecognitionResultResolver: SpeechRecognitionResultResolver = SpeechRecognitionResultResolverFactory.getInstance(result.data)
         if (this::textViewSpeechRecognizerOutput.isInitialized && result.data != null) {
-            textViewSpeechRecognizerOutput.text = speechRecgnitionResultResolver.getText()
-            speechRecgnitionResultResolver.getConfidencePerStringMapOrNull()?.let {
+            textViewSpeechRecognizerOutput.text = speechRecognitionResultResolver.getTextsOrNull()?.get(0)
+            speechRecognitionResultResolver.getConfidencePerStringMapOrNull()?.let {
                 logPairList(it)
             }
         } else {
-            Snackbar.make(requireView(), speechRecgnitionResultResolver.getResultCodeString(result.resultCode), Snackbar.LENGTH_LONG).show()
+            Snackbar.make(requireView(), speechRecognitionResultResolver.getResultCodeString(result.resultCode), Snackbar.LENGTH_LONG).show()
         }
     }
 

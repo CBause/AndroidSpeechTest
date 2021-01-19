@@ -36,7 +36,6 @@ android {
 dependencies {
     implementation project(":speechrecognitionintentbuilder")
     implementation project(":speechrecognitionresultresolver")
-    implementation project(":speechrecognitionintentfilterbuilder")
     implementation project(":speechrecognizercontroller")
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"

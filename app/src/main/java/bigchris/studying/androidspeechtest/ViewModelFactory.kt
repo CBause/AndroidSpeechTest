@@ -10,9 +10,13 @@ import bigchris.studying.androidspeechtest.speechrecognition.SpeechRecognitionVi
 
 class ViewModelFactory(private val getMainViewModel: Boolean) : ViewModelProvider.NewInstanceFactory() {
 
+    companion object {
+        val mainViewModel: MainViewModel by lazy {MainViewModel()}
+    }
+
     override fun <T : ViewModel?> create(modelClass: Class<T>) = with(modelClass) {
         when {
-            getMainViewModel || isAssignableFrom(MainViewModel::class.java) -> MainViewModel()
+            getMainViewModel || isAssignableFrom(MainViewModel::class.java) -> ViewModelFactory.mainViewModel
             isAssignableFrom(DirectSpeechRecognitionViewModel::class.java) -> DirectSpeechRecognitionViewModel()
             isAssignableFrom(SpeechRecognitionViewModel::class.java) -> SpeechRecognitionViewModel()
             isAssignableFrom(ExternalSpeechRecognitionViewModel::class.java) -> ExternalSpeechRecognitionViewModel()

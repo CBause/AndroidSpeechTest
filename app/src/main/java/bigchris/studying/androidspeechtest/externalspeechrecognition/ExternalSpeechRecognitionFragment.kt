@@ -3,7 +3,10 @@ package bigchris.studying.androidspeechtest.externalspeechrecognition
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
 import android.os.Bundle
+import android.speech.RecognizerResultsIntent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,6 +27,13 @@ class ExternalSpeechRecognitionFragment : Fragment(), Tagged {
     private val mainViewModel by viewModels<MainViewModel> {getViewModelFactory(true)}
     private lateinit var buttonExternalSpeechRecognizerStart: ImageButton
     private lateinit var editTextExternalSpeechRecognizerOutput: EditText
+    private val receiver = TestBroadcastReceiver()
+
+    inner class TestBroadcastReceiver : BroadcastReceiver() {
+        override fun onReceive(context: Context?, intent: Intent?) {
+            Log.i(TAG, intent?.toString()!!)
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -32,6 +42,8 @@ class ExternalSpeechRecognitionFragment : Fragment(), Tagged {
     ): View? {
         return inflater.inflate(R.layout.external_speechrecognitionfragment, container, false)
     }
+
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -44,6 +56,18 @@ class ExternalSpeechRecognitionFragment : Fragment(), Tagged {
         buttonExternalSpeechRecognizerStart.setOnClickListener {
             startActivity(viewModel.getExternalSpeechRecognitionIntent())
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val filter = IntentFilter()
+        filter.addAction(RecognizerResultsIntent.ACTION_VOICE_SEARCH_RESULTS)
+        requireActivity().registerReceiver(receiver, filter)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        requireActivity().unregisterReceiver(receiver)
     }
 
 }

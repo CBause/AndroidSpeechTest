@@ -29,7 +29,7 @@ internal class DefaultSpeechRecognitionResultResolver(val resultIntent: Intent?)
             RecognizerIntent.RESULT_NO_MATCH -> "No match"
             RecognizerIntent.RESULT_SERVER_ERROR -> "Server error"
             -1 -> "Successful"
-            else -> ""
+            else -> "Unknown error"
         }
     }
 

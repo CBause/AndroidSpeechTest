@@ -1,6 +1,7 @@
 package bigchris.studying.androidspeechtest.directspeechrecognition
 
 import android.Manifest
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -25,10 +27,7 @@ class DirectSpeechRecognitionFragment : Fragment(), Tagged {
     private lateinit var buttonDirectSpeechRecognizerStop: Button
     private lateinit var buttonClearTextView: Button
     private lateinit var editTextDirectSpeechRecognizerOutput: EditText
-    private var gotNeededPermissions = false
-    private val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) {
-        gotNeededPermissions = it
-    }
+    private val requestPermissionRecordAudioLauncher = getRequestPermissionRecordAudioLauncher()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -47,6 +46,7 @@ class DirectSpeechRecognitionFragment : Fragment(), Tagged {
         viewModel.initializeSpeechRecognizerController(requireContext())
         setupClickListeners()
         setupViewModelObservations()
+        
     }
 
     override fun onDestroy() {
@@ -54,9 +54,14 @@ class DirectSpeechRecognitionFragment : Fragment(), Tagged {
         viewModel.removeSpeechRecognizerController()
     }
 
-    private fun checkForPermissions() {
-        if (!gotNeededPermissions)
-            requestPermissionLauncher.launch(Manifest.permission.RECORD_AUDIO)
+
+
+    private fun getRequestPermissionRecordAudioLauncher() = registerForActivityResult(ActivityResultContracts.RequestPermission()) {
+        if (it) {
+            viewModel.startSpeechRecognition()
+        } else {
+            Snackbar.make(requireView(), "Permission denied", Snackbar.LENGTH_SHORT).show()
+        }
     }
 
     private fun setupClickListeners() {
@@ -65,16 +70,20 @@ class DirectSpeechRecognitionFragment : Fragment(), Tagged {
         setClearTextViewOnClickListener()
     }
 
+    private fun checkRecordAudioPermission() =
+        ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED
+
     private fun setStartOnClickListener() {
         buttonDirectSpeechRecognizerStart.setOnClickListener {
-            checkForPermissions()
-            viewModel.startSpeechRecognition()
+            if (!checkRecordAudioPermission())
+                requestPermissionRecordAudioLauncher.launch(Manifest.permission.RECORD_AUDIO)
+            else
+                viewModel.startSpeechRecognition()
         }
     }
 
     private fun setStopOnClickListener() {
         buttonDirectSpeechRecognizerStop.setOnClickListener {
-            checkForPermissions()
             viewModel.stopSpeechRecognition()
         }
     }
@@ -115,7 +124,7 @@ class DirectSpeechRecognitionFragment : Fragment(), Tagged {
     private fun getSpeechRecognitionResultsObserver() = Observer<List<String>> {
         editTextDirectSpeechRecognizerOutput.text.clear()
         it.forEach {currentString ->
-            editTextDirectSpeechRecognizerOutput.text = editTextDirectSpeechRecognizerOutput.text.append(" $currentString")
+            editTextDirectSpeechRecognizerOutput.text = editTextDirectSpeechRecognizerOutput.text.append("$currentString\n")
         }
     }
 

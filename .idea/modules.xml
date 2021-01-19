@@ -5,7 +5,6 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/AndroidSpeechTest.iml" filepath="$PROJECT_DIR$/.idea/modules/AndroidSpeechTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/AndroidSpeechTest.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/AndroidSpeechTest.app.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/speechrecognitionintentbuilder/AndroidSpeechTest.speechrecognitionintentbuilder.iml" filepath="$PROJECT_DIR$/.idea/modules/speechrecognitionintentbuilder/AndroidSpeechTest.speechrecognitionintentbuilder.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/speechrecognitionintentfilterbuilder/AndroidSpeechTest.speechrecognitionintentfilterbuilder.iml" filepath="$PROJECT_DIR$/.idea/modules/speechrecognitionintentfilterbuilder/AndroidSpeechTest.speechrecognitionintentfilterbuilder.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/speechrecognitionresultresolver/AndroidSpeechTest.speechrecognitionresultresolver.iml" filepath="$PROJECT_DIR$/.idea/modules/speechrecognitionresultresolver/AndroidSpeechTest.speechrecognitionresultresolver.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/speechrecognizercontroller/AndroidSpeechTest.speechrecognizercontroller.iml" filepath="$PROJECT_DIR$/.idea/modules/speechrecognizercontroller/AndroidSpeechTest.speechrecognizercontroller.iml" />
     </modules>

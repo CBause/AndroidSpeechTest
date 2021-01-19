@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <TextView
         android:id="@+id/textViewSpeechRecognizerOutput"
         android:layout_width="0dp"
@@ -18,6 +19,7 @@
         android:focusable="false"
         android:gravity="start|center_vertical"
         android:hint="@string/speechRecognitionWaitingForInput"
+        android:lines="1"
         android:paddingStart="8dp"
         android:paddingEnd="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/buttonStartSpeechRecognition"

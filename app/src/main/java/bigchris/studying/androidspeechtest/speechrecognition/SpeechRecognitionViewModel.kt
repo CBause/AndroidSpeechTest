@@ -12,6 +12,7 @@ class SpeechRecognitionViewModel : ViewModel(), Tagged {
 
     fun getSpeechRecognizerIntent(context: Context? = null) : Intent = with(SpeechRecognitionIntentBuilderFactory.getInstance()) {
         this.setExtraLanguage("de-DE")
+        this.setExtraPreferOffline(true)
         context?.let {
             this.setExtraPrompt(it.resources.getString(R.string.speechRecognitionPrompt))
         }
