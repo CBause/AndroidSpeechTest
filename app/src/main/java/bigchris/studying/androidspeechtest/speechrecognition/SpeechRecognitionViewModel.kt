@@ -9,13 +9,4 @@ import bigchris.studying.speechrecognitionintentbuilder.SpeechRecognitionIntentB
 
 class SpeechRecognitionViewModel : ViewModel(), Tagged {
     override val TAG = "SPEECHRECOGNITIONVIEWMODEL"
-
-    fun getSpeechRecognizerIntent(context: Context? = null) : Intent = with(SpeechRecognitionIntentBuilderFactory.getInstance()) {
-        this.setExtraLanguage("de-DE")
-        this.setExtraPreferOffline(true)
-        context?.let {
-            this.setExtraPrompt(it.resources.getString(R.string.speechRecognitionPrompt))
-        }
-        this.getResult()
-    }
 }

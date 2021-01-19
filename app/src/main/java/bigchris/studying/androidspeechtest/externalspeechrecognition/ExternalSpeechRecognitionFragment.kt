@@ -27,13 +27,6 @@ class ExternalSpeechRecognitionFragment : Fragment(), Tagged {
     private val mainViewModel by viewModels<MainViewModel> {getViewModelFactory(true)}
     private lateinit var buttonExternalSpeechRecognizerStart: ImageButton
     private lateinit var editTextExternalSpeechRecognizerOutput: EditText
-    private val receiver = TestBroadcastReceiver()
-
-    inner class TestBroadcastReceiver : BroadcastReceiver() {
-        override fun onReceive(context: Context?, intent: Intent?) {
-            Log.i(TAG, intent?.toString()!!)
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -53,21 +46,7 @@ class ExternalSpeechRecognitionFragment : Fragment(), Tagged {
     }
 
     private fun setupButtonExternalSpeechRecognizerStart() {
-        buttonExternalSpeechRecognizerStart.setOnClickListener {
-            startActivity(viewModel.getExternalSpeechRecognitionIntent())
-        }
-    }
 
-    override fun onResume() {
-        super.onResume()
-        val filter = IntentFilter()
-        filter.addAction(RecognizerResultsIntent.ACTION_VOICE_SEARCH_RESULTS)
-        requireActivity().registerReceiver(receiver, filter)
-    }
-
-    override fun onPause() {
-        super.onPause()
-        requireActivity().unregisterReceiver(receiver)
     }
 
 }

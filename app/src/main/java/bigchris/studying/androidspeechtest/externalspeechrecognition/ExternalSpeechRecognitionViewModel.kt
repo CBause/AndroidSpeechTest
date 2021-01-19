@@ -8,9 +8,4 @@ import bigchris.studying.speechrecognitionintentbuilder.SpeechRecognitionIntentB
 class ExternalSpeechRecognitionViewModel : ViewModel(), Tagged {
     override val TAG = "EXTERNALSPEECHRECOGNITIONVIEWMODEL"
 
-    fun getExternalSpeechRecognitionIntent(): Intent = with(SpeechRecognitionIntentBuilderFactory.getInstance()) {
-        this.setActionWebSearch()
-        this.getResult()
-    }
-
 }

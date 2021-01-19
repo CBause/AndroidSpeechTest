@@ -26,7 +26,6 @@ class SpeechRecognitionFragment : Fragment(), Tagged {
     private val mainViewModel by viewModels<MainViewModel> {getViewModelFactory(true)}
     private lateinit var textViewSpeechRecognizerOutput: TextView
     private lateinit var buttonStartSpeechRecognition: ImageButton
-    private val activityResultLauncher = getSpeechRecognitionActivityLauncher()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.speechrecognition_fragment, container, false)
@@ -42,26 +41,7 @@ class SpeechRecognitionFragment : Fragment(), Tagged {
     }
 
     private fun setupExternalSpeechRecognitionButton() {
-        buttonStartSpeechRecognition.setOnClickListener {
-                activityResultLauncher.launch(viewModel.getSpeechRecognizerIntent(context))
-        }
     }
 
-    private fun getSpeechRecognitionActivityLauncher() = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {result->
-        val speechRecognitionResultResolver: SpeechRecognitionResultResolver = SpeechRecognitionResultResolverFactory.getInstance(result.data)
-        if (this::textViewSpeechRecognizerOutput.isInitialized && result.data != null) {
-            textViewSpeechRecognizerOutput.text = speechRecognitionResultResolver.getTextsOrNull()?.get(0)
-            speechRecognitionResultResolver.getConfidencePerStringMapOrNull()?.let {
-                logPairList(it)
-            }
-        } else {
-            Snackbar.make(requireView(), speechRecognitionResultResolver.getResultCodeString(result.resultCode), Snackbar.LENGTH_LONG).show()
-        }
-    }
 
-    private fun logPairList(pairList: List<Pair<Any, Any>>) {
-        for ((index, currentPair) in pairList.withIndex()) {
-            Log.v(TAG, "$index. ${currentPair.first.toString()} : ${currentPair.second.toString()}")
-        }
-    }
 }
