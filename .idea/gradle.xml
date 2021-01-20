@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/speechrecognitionintentbuilder" />
             <option value="$PROJECT_DIR$/speechrecognitionresultmediator" />
+            <option value="$PROJECT_DIR$/speechrecognizercontroller" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
