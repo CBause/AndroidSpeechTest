@@ -52,7 +52,7 @@ class DirectSpeechRecognitionViewModel : ViewModel(), Tagged, SpeechRecognizerCo
     }
 
     override fun onSpeechRecognitionResults(resultStrings: ArrayList<String>) {
-        (currentResultsList as MutableLiveData).value = resultStrings
+        (currentResultsList as MutableLiveData).value = arrayListOf(resultStrings[0])
     }
 
     override fun onSpeechRecognitionPartialResults(resultStrings: ArrayList<String>) {
@@ -67,5 +67,6 @@ class DirectSpeechRecognitionViewModel : ViewModel(), Tagged, SpeechRecognizerCo
 
     override fun onSpeechRecognitionStopped() {
         (speechRecognizerStarted as MutableLiveData).value = false
+        (currentPartialResultsList.value as ArrayList<String>).clear()
     }
 }

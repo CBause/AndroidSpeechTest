@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.speech.RecognitionListener
 import android.speech.SpeechRecognizer
 
-internal class DefaultSpeechRecognizerController(val speechRecognizer: SpeechRecognizer) : SpeechRecognizerController {
+internal class DefaultSpeechRecognizerController(private val speechRecognizer: SpeechRecognizer) : SpeechRecognizerController {
     private val speechRecognizerControllerListeners = ArrayList<SpeechRecognizerControllerListener>()
 
     init {
@@ -46,6 +46,7 @@ internal class DefaultSpeechRecognizerController(val speechRecognizer: SpeechRec
             }
             speechRecognizerControllerListeners.forEach {
                 it.onSpeechRecognitionError(error, errorString)
+                it.onSpeechRecognitionStopped()
             }
         }
 
@@ -76,9 +77,6 @@ internal class DefaultSpeechRecognizerController(val speechRecognizer: SpeechRec
 
     override fun stopListening() {
         speechRecognizer.stopListening()
-        speechRecognizerControllerListeners.forEach() {
-            it.onSpeechRecognitionStopped()
-        }
     }
 
     override fun registerSpeechRecognizerControllerListener(listener: SpeechRecognizerControllerListener) {
