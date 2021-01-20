@@ -158,5 +158,7 @@
     <orderEntry type="library" name="Gradle: androidx.arch.core:core-runtime:2.1.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.interpolator:interpolator:1.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.annotation:annotation-experimental:1.0.0@aar" level="project" />
+    <orderEntry type="module" module-name="AndroidSpeechTest.speechrecognitionintentbuilder" />
+    <orderEntry type="module" module-name="AndroidSpeechTest.speechrecognitionresultmediator" />
   </component>
 </module>
