@@ -160,5 +160,6 @@
     <orderEntry type="library" name="Gradle: androidx.annotation:annotation-experimental:1.0.0@aar" level="project" />
     <orderEntry type="module" module-name="AndroidSpeechTest.speechrecognitionintentbuilder" />
     <orderEntry type="module" module-name="AndroidSpeechTest.speechrecognitionresultmediator" />
+    <orderEntry type="module" module-name="AndroidSpeechTest.speechrecognizercontroller" />
   </component>
 </module>
