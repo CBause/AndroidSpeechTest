@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import bigchris.studying.androidspeechtest.directspeechrecognition.DirectSpeechRecognitionViewModel
-import bigchris.studying.androidspeechtest.externalspeechrecognition.ExternalSpeechRecognitionViewModel
 import bigchris.studying.androidspeechtest.speechrecognition.SpeechRecognitionViewModel
 
 class ViewModelFactory(private val getMainViewModel: Boolean) : ViewModelProvider.NewInstanceFactory() {
@@ -19,7 +18,6 @@ class ViewModelFactory(private val getMainViewModel: Boolean) : ViewModelProvide
             getMainViewModel || isAssignableFrom(MainViewModel::class.java) -> ViewModelFactory.mainViewModel
             isAssignableFrom(DirectSpeechRecognitionViewModel::class.java) -> DirectSpeechRecognitionViewModel()
             isAssignableFrom(SpeechRecognitionViewModel::class.java) -> SpeechRecognitionViewModel()
-            isAssignableFrom(ExternalSpeechRecognitionViewModel::class.java) -> ExternalSpeechRecognitionViewModel()
             else -> throw Exception("Undefined viewmodel")
         }
     } as T

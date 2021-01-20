@@ -18,7 +18,7 @@
         android:text="@string/speechRecognitionDefault"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/buttonNavigateToExternalSpeechRecognitionFragment"
+        app:layout_constraintEnd_toStartOf="@id/buttonNavigateToDirectSpeechRecognitionFragment"
         app:layout_constraintHorizontal_weight="0.3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -38,23 +38,6 @@
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_weight="0.3"
-        app:layout_constraintStart_toEndOf="@id/buttonNavigateToExternalSpeechRecognitionFragment"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/buttonNavigateToExternalSpeechRecognitionFragment"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="8dp"
-        android:backgroundTint="#00BCD4"
-        android:text="@string/speechRecognitionExternal"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/buttonNavigateToDirectSpeechRecognitionFragment"
         app:layout_constraintHorizontal_weight="0.3"
         app:layout_constraintStart_toEndOf="@+id/buttonNavigateToSpeechRecognitionFragment"
         app:layout_constraintTop_toTopOf="parent" />

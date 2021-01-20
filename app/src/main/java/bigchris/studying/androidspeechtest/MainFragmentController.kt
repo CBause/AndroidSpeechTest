@@ -4,7 +4,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import bigchris.studying.androidspeechtest.speechrecognition.SpeechRecognitionFragment
 import bigchris.studying.androidspeechtest.directspeechrecognition.DirectSpeechRecognitionFragment
-import bigchris.studying.androidspeechtest.externalspeechrecognition.ExternalSpeechRecognitionFragment
 import java.lang.IllegalArgumentException
 
 object MainFragmentController : Tagged {
@@ -13,15 +12,13 @@ object MainFragmentController : Tagged {
     val initialFragmentClass: FRAGMENTTAGS = FRAGMENTTAGS.SPEECHRECOGNITIONFRAGMENT
     enum class FRAGMENTTAGS {
         DIRECTSPEECHRECOGNITIONFRAGMENT,
-        SPEECHRECOGNITIONFRAGMENT,
-        EXTERNALSPEECHRECOGNITIONFRAGMENT
+        SPEECHRECOGNITIONFRAGMENT
     }
 
     private fun createFragment(fragmentTag: FRAGMENTTAGS) : Fragment = with(fragmentTag) {
         when(fragmentTag) {
             FRAGMENTTAGS.DIRECTSPEECHRECOGNITIONFRAGMENT -> DirectSpeechRecognitionFragment()
             FRAGMENTTAGS.SPEECHRECOGNITIONFRAGMENT -> SpeechRecognitionFragment()
-            FRAGMENTTAGS.EXTERNALSPEECHRECOGNITIONFRAGMENT -> ExternalSpeechRecognitionFragment()
             else -> throw IllegalArgumentException("Undefined or unknown fragment")
         }
     }

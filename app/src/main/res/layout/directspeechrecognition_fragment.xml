@@ -55,6 +55,7 @@
         android:ems="10"
         android:focusable="false"
         android:gravity="start|top"
+        android:padding="8dp"
         android:hint="@string/speechRecognitionPressStartToBegin"
         android:inputType="textMultiLine"
         app:layout_constraintBottom_toTopOf="@+id/buttonSpeechRecognizerStart"
